@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+ {%block title%}
+    Notas
+ {%endblock%}
+
+ {%block main%}
+    <div class="container">
+        
+            
+        <form id="form" action = "/notas" method = "post">
+            <div class="form-group">
+                <label for="pdfFile">Selecione uma nota em PDF:</label>
+                <br>
+                <input type="file" id="pdfFile" name = "pdf-file" class="form-control-file" accept="application/pdf" onchange="displayFileName(this)">
+                <br>
+                <button type = "submit">Enviar</button>
+            </div>
+        </form>
+            
+        
+    </div>
+ {%endblock%}
