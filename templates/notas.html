@@ -8,16 +8,24 @@
     <div class="container">
         
             
-        <form id="form" action = "/notas" method = "post">
-            <div class="form-group">
-                <label for="pdfFile">Selecione uma nota em PDF:</label>
-                <br>
-                <input type="file" id="pdfFile" name = "pdf-file" class="form-control-file" accept="application/pdf" onchange="displayFileName(this)">
-                <br>
-                <button type = "submit">Enviar</button>
-            </div>
+        <form method="post" action="/notas" enctype="multipart/form-data">
+            <input type="file" name="arquivo_pdf">
+            <input type="submit" value="Enviar PDF">
         </form>
             
         
     </div>
+    {% if tabelas != 0 %}
+        {% for tabela in tabelas %}
+        <table>
+            {% for linha in tabela %}
+                <tr>
+                    {% for coluna in linha %}
+                        <td>{{ coluna }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    {%endif%}
  {%endblock%}
